@@ -40,6 +40,10 @@ This is the central entry point of the package. It acts as the connection manage
          2 = Warnings and milestones.\
          3 = Verbose SQL and driver API tracing.\
          4 = Detailed Debug logging.
+    - **Language As String (Read/Write)**\
+      Set/Get language reported by HasLog Event and to iLog Object
+      Language files ar located in App.Path & "\Lang" folder, Lang_xx.txt where xx is country code eg. Lang_en.txt
+      Curently supports Language "se"(Swedish), "en"(English)
     - **hasConnected As Boolean (Read-Only)**\
       Returns True if this class instance has successfully established a database connection at least once.
     - **isConnected As Boolean (Read-Only)**\
@@ -96,7 +100,15 @@ This is the central entry point of the package. It acts as the connection manage
     - **Event hasLogg(ByVal Msg As String, ByVal Level As Long, Source as String)**\
       Fires only if no LoggObjet has been provided whit the New or RegisterLoggObj routine.\
       Msg is the mesage, Level se property LoggLvl, Sourrce is "Class name - function/sub name.
-
+      
+  - **Error Handling**
+    supports Error Cods repported from Databas DLL files.
+    - **HasError() As Boolean**\
+      Is True if error comunicating with DLL files accure
+    - **ErrorCode() As Long**
+      Giv true Error code number
+    - **ErrorMessage() As String**
+      Giv true Error code description
 
 ### RowSet
 This class holds the results of a database query and is utilized to traverse through rows, as well as providing an interface to append or adjust records using the built-in Object-Relational Mapping (ORM) layer.
